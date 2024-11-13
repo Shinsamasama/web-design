@@ -1,0 +1,355 @@
+@charset "UTF-8";
+
+
+html {
+    font-size: 100%;
+}
+
+body {
+    color: #121212;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+   
+a {
+    color: #121212;
+    text-decoration: none;
+}
+  
+img {
+    max-width: 100%;
+}
+  
+li {
+    list-style: none;
+}
+
+
+
+
+/*-------------------------------------------
+ヘッダー
+-------------------------------------------*/
+/*
+「position: fixed;」でヘッダーを固定し、「z-index: 10;」で前面に表示
+※他のコンテンツでpositionをrelative、absolute、fixedのいずれかに
+設定している場合は、z-indexの数値が大きい方が前面に表示される
+*/
+#header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    position: fixed;
+    z-index: 10;
+    background-color: #fff;
+  }
+
+  /*
+  ハンバーガーメニュー
+  解説は、「中級編：ストアサイト（インテリア）」のCSS参照
+  */
+
+#navi {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    bottom: 0;
+    width: 300px;
+    color: #fff;
+    padding: 60px 25px;
+    background-color: #121212;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transition: all .5s;
+    z-index: 20;
+    opacity: 0;
+}
+  
+#navi a {
+    color: #fff;
+}
+  
+.open #navi {
+    left: 0;
+    opacity: 1;
+}
+  
+#navi ul {
+    margin: 0;
+    padding: 0;
+}
+  
+#navi ul.nav-menu {
+    margin-bottom: 60px;
+    border-top: solid 1px #fff;
+}
+  
+#navi ul.nav-menu li {
+    position: relative;
+    margin: 0;
+    padding: 20px 0;
+    border-bottom: solid 1px #fff;
+}
+
+#navi ul.nav-sns li {
+    padding: 5px 0;
+}
+  
+.toggle_btn {
+    display: block;
+    position: fixed;
+    top: 25px;
+    right: 45px;
+    width: 30px;
+    height: 30px;
+    transition: all .5s;
+    cursor: pointer;
+    z-index: 20;
+  }
+
+.toggle_btn span {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    border-radius: 4px;
+    transition: all .5s;
+}
+  
+.toggle_btn span:nth-child(1) {
+    top: 4px;
+}
+  
+.toggle_btn span:nth-child(2) {
+    top: 14px;
+}
+  
+.toggle_btn span:nth-child(3) {
+    bottom: 4px;
+}
+  
+.open .toggle_btn span {
+    background-color: #fff;
+}
+  
+.open .toggle_btn span:nth-child(1) {
+    -webkit-transform: translateY(10px) rotate(-315deg);
+    transform: translateY(10px) rotate(-315deg);
+}
+  
+.open .toggle_btn span:nth-child(2) {
+    opacity: 0;
+}
+  
+.open .toggle_btn span:nth-child(3) {
+    -webkit-transform: translateY(-10px) rotate(315deg);
+    transform: translateY(-10px) rotate(315deg);
+}
+  
+#mask {
+    display: none;
+    transition: all .5s;
+  }
+  
+.open #mask {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .8;
+    z-index: 10;
+    cursor: pointer;
+}
+
+
+
+
+#main {
+    padding-top: 80px;
+}
+
+#bg-video {
+    width: 100%;
+    max-height: 960px;
+    object-fit: cover;
+}
+  
+#video {
+    max-width: 100%;
+}
+
+
+
+/* pickup */
+.sec-title {
+    font-size: 38px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 110px;
+}
+
+.slick-area {
+    display: flex;
+    justify-content: space-between;
+}
+
+.slick-area li {
+     height: 240px;
+     width: 360px;
+     padding: 40px 20px;
+}
+
+
+
+/* feature */
+
+#feature div {
+     display: flex;
+     flex-wrap: wrap;
+}
+
+.feature-list {
+    width: 33%;
+    padding: 20px 26px;
+    box-shadow: 0 0 4px 2px #ccc;
+}
+
+.feature-img {
+    width: 100%;
+    width: 400px;
+    height: 300px;
+}
+
+.feature-list dt {
+    font-size: 12px;
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-bottom: 24px;
+}
+
+.feature-list dd {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 2.0;
+    padding-left: 30px;
+}
+
+
+
+/* contact */
+
+#contact {
+    background-color: #000;
+}
+
+#contact > .sec-title {
+    color: #fff;
+    padding-top: 50px;
+}
+
+.contact-container {
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.contact-info {
+    width: 45%;
+    margin-top: 40px;
+    padding: 0 40px;
+}
+
+.contact-info p {
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.contact-form {
+    width: 45%;
+    margin-top: 40px;
+    padding: 0 40px;
+}
+
+.contact-form label,
+.contact-form textarea {
+    color: #fff;
+}
+
+#contact .contact-form input,
+#contact .contact-form textarea {
+  width: 100%;
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+#contact .contact-form .button input {
+  width: 200px;
+  color: #fff;
+  background-color: #121212;
+  border: solid 1px #fff;
+  padding: 12px 0;
+  margin-bottom: 0;
+}
+
+#contact .contact-form .button input:hover {
+  color: #202020;
+  background-color: #fff;
+}
+
+
+
+footer p {
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+    padding: 20px 10px;
+    background-color: #121212;
+}
+
+
+
+@media (max-width: 800px) {
+
+#header {
+    padding: 20px 16px;
+}
+
+.toggle_btn {
+    top: 33px;
+    right: 16px;
+}
+
+#bg-video {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+
+#feature div {
+    display: block;
+}
+
+.feature-list {
+    width: 100%;
+    padding: 26px 16px;
+    box-shadow: 0 0 4px 2px #ccc;
+    text-align: center;
+}
+
+
+
+
+}
